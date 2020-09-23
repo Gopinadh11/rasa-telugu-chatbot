@@ -1,0 +1,25 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: "te"
+
+pipeline: supervised_embeddings
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+
+policies:
+  -
+    batch_size: 50
+    epochs: 50
+    max_training_samples: 300
+    name: TEDPolicy
+  -
+    fallback_action_name: action_default_fallback
+    name: FallbackPolicy
+  -
+    max_history: 5
+    name: MemoizationPolicy
+  -
+    name: FormPolicy
+  -
+    name: MappingPolicy
